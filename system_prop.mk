@@ -1,4 +1,4 @@
-# system.prop for d2-common
+# system.prop for d2-unified
 #
 
 # audio
@@ -14,7 +14,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # radio
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libsec-ril.so \
-    ro.telephony.ril_class=d2lteRIL
+    rild.libargs=-d /dev/smd0 \
+    ro.telephony.ril_class=d2lteRIL \
+    telephony.lteOnGsmDevice=1 \
+    ro.telephony.default_network=9
 
 # gps
 PRODUCT_PROPERTY_OVERRIDES += \

@@ -11,9 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+ 
+# Inherit from d2att device
+$(call inherit-product, device/samsung/d2-unified/device.mk)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Inherit from d2-common device
-$(call inherit-product, device/samsung/d2-common/device.mk)
+# Set those variables here to overwrite the inherited values.
+PRODUCT_NAME := full_d2att
+PRODUCT_DEVICE := d2att
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SAMSUNG-SGH-I747

@@ -71,6 +71,8 @@ bin/radish
 bin/rild
 bin/rmt_storage
 lib/libreference-ril.so
+lib/libril.so
+lib/libsec-ril.so
 lib/libsecril-client.so
 lib/libxml.so
 vendor/lib/libconfigdb.so

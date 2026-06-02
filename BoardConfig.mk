@@ -25,7 +25,10 @@
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/d2-common/include
+# inherit from the proprietary version
+-include vendor/samsung/d2att/BoardConfigVendor.mk
+
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/d2-unified/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
@@ -39,8 +42,8 @@ BOARD_HAVE_SAMSUNG_CSDCLIENT := true
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/d2-common/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/samsung/d2-common/bluetooth/vnd_d2.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/d2-unified/bluetooth
+BOARD_CUSTOM_BT_CONFIG := device/samsung/d2-unified/bluetooth/vnd_d2.txt
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 
@@ -58,14 +61,14 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13140754432
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 880803840
-TARGET_RECOVERY_FSTAB := device/samsung/d2-common/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := device/samsung/d2-unified/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
 TARGET_RECOVERY_DENSITY := hdpi
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/d2-common/ril
+BOARD_RIL_CLASS := ../../../device/samsung/d2-unified/ril
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
@@ -78,3 +81,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcmdhd_apsta.bin"
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := d2att,d2lte,d2can,d2tmo
