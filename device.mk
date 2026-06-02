@@ -36,14 +36,8 @@ PRODUCT_AAPT_PREF_CONFIG        := xhdpi
 TARGET_SCREEN_HEIGHT            := 1280
 TARGET_SCREEN_WIDTH             := 720
 TARGET_BOOTANIMATION_HALF_RES   := true
-PRODUCT_PROPERTY_OVERRIDES      += ro.sf.lcd_density=320
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
-# ART
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-flags=--no-watch-dog \
-    dalvik.vm.dex2oat-swap=false
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -68,26 +62,6 @@ PRODUCT_PACKAGES += \
 # Camera Wrapper
 PRODUCT_PACKAGES += \
     camera.msm8960
-
-# Configure libhwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=48 \
-    ro.hwui.layer_cache_size=32 \
-    ro.hwui.r_buffer_cache_size=4 \
-    ro.hwui.path_cache_size=24 \
-    ro.hwui.gradient_cache_size=1 \
-    ro.hwui.drop_shadow_cache_size=5 \
-    ro.hwui.texture_cache_flushrate=0.5 \
-    ro.hwui.text_small_cache_width=1024 \
-    ro.hwui.text_small_cache_height=1024 \
-    ro.hwui.text_large_cache_width=2048 \
-    ro.hwui.text_large_cache_height=1024
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.enable_boot_charger_mode=1
 
 # Display
 PRODUCT_PACKAGES += \
@@ -145,26 +119,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
     $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.hw.aac.encoder=true \
-    ro.config.vc_call_vol_steps=10
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.composition.type=dyn \
-    ro.opengles.version=131072 \
-    camera2.portability.force_api=1 \
-    media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data_netmgrd_nint=16 \
-    persist.radio.add_power_save=1 \
-    persist.radio.mode_pref_nv10=1 \
-    persist.radio.no_wait_for_card=0
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true
 
 # Media configuration
 PRODUCT_COPY_FILES += \
