@@ -84,6 +84,9 @@ EXTENDED_FONT_FOOTPRINT 						:= true
 TARGET_NO_RPC 									:= true
 USE_DEVICE_SPECIFIC_GPS 						:= true
 
+# Init
+TARGET_INIT_VENDOR_LIB                          := libinit_d2
+
 # Kernel
 TARGET_KERNEL_CONFIG        					:= lineageos_d2_defconfig
 BOARD_KERNEL_CMDLINE 							:= androidboot.hardware=qcom user_debug=31 zcache
