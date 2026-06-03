@@ -25,7 +25,7 @@ $(call inherit-product-if-exists, $(VENDOR_PATH)/msm8960-common/msm8960-common-v
 $(call inherit-product-if-exists, $(VENDOR_PATH)/d2-common/d2-common-vendor.mk)
 $(call inherit-product-if-exists, $(VENDOR_PATH)/d2gsm/d2gsm-vendor.mk)
 $(call inherit-product, $(DEVICE_PATH)/system_prop.mk)
-$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
+$(call inherit-product-if-exists, device/samsung/qcom-common/qcom-common.mk)
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS         += $(DEVICE_PATH)/overlay
@@ -74,6 +74,11 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
     SamsungDoze
+
+# FS
+PRODUCT_PACKAGES += \
+    fsck.f2fs \
+    mkfs.f2fs
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -188,7 +193,8 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.recovery.qcom.rc
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
@@ -201,6 +207,10 @@ PRODUCT_COPY_FILES += \
 # SPN override
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
+
+# Tzdata
+PRODUCT_PACKAGES += \
+    tzdata_twrp
 
 # Voice processing
 PRODUCT_PACKAGES += \

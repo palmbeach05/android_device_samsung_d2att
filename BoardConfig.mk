@@ -97,6 +97,9 @@ BOARD_KERNEL_BASE 								:= 0x80200000
 BOARD_MKBOOTIMG_ARGS 							:= --ramdisk_offset 0x01500000
 BOARD_KERNEL_PAGESIZE 							:= 2048
 TARGET_KERNEL_SOURCE 							:= kernel/samsung/d2
+KERNEL_TOOLCHAIN 								:= $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN_PREFIX 						:= arm-eabi-
+LZMA_RAMDISK_TARGETS							:= recovery
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE 					:= 10485760
@@ -105,7 +108,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE 				:= 1572864000
 BOARD_USERDATAIMAGE_PARTITION_SIZE 				:= 13140754432
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE 				:= ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE 				:= 880803840
-TARGET_RECOVERY_FSTAB 							:= $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB 							:= $(DEVICE_PATH)/rootdir/etc/twrp.fstab
 TARGET_USERIMAGES_USE_F2FS 						:= true
 TARGET_USERIMAGES_USE_EXT4 						:= true
 BOARD_FLASH_BLOCK_SIZE 							:= 131072
@@ -126,8 +129,30 @@ BOARD_HAS_LARGE_FILESYSTEM 						:= true
 BOARD_HAS_NO_SELECT_BUTTON 						:= true
 BOARD_RECOVERY_SWIPE 							:= true
 
+# Recovery - TWRP
+TW_BRIGHTNESS_PATH 								:= "/sys/class/leds/lcd-backlight/brightness"
+TW_THEME 										:= portrait_hdpi
+TARGET_RECOVERY_PIXEL_FORMAT 					:= "RGBX_8888"
+DEVICE_RESOLUTION 								:= 720x1280
+RECOVERY_GRAPHICS_USE_LINELENGTH 				:= true
+RECOVERY_SDCARD_ON_DATA 						:= true
+TW_INCLUDE_NTFS_3G 								:= true
+TW_HAS_MTP 										:= true
+TW_MTP_DEVICE 									:= /dev/mtp_usb
+TW_NO_USB_STORAGE 								:= true
+TW_MAX_BRIGHTNESS 								:= 255
+TW_NO_REBOOT_BOOTLOADER 						:= true
+TW_HAS_DOWNLOAD_MODE 							:= true
+BOARD_HAS_NO_REAL_SDCARD 						:= true
+TW_EXCLUDE_SUPERSU 								:= true
+TW_OVERRIDE_SYSTEM_PROPS 						:= "ro.build.fingerprint;ro.build.version.incremental"
+TW_USE_TOOLBOX 									:= true
+TW_EXCLUDE_TWRPAPP 								:= true
+TW_INCLUDE_CRYPTO 								:= true
+TW_EXTRA_LANGUAGES 								:= false
+
 # SDClang
-TARGET_USE_SDCLANG 								:= true
+TARGET_USE_SDCLANG 								:= false
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk

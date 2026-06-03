@@ -1,4 +1,3 @@
-#
 # Copyright (C) 2011 The Android Open Source Project
 # Copyright (C) 2017 The LineageOS Project
 #
@@ -12,14 +11,15 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# limitations under the License
+# Inherit some common Lineage stuff.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, vendor/omni/config/common_full_phone.mk)
+$(call inherit-product, device/samsung/d2-unified/device.mk)
 
-# This file is executed by build/envsetup.sh, and can use anything
-# defined in envsetup.sh.
-#
-# In particular, you can add lunch options with the add_lunch_combo
-# function: add_lunch_combo generic-eng
-
-add_lunch_combo lineage_d2-unified-userdebug
-add_lunch_combo omni_d2-unified-userdebug
+# Product Identity
+PRODUCT_NAME := omni_d2-unified
+PRODUCT_DEVICE := d2att
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SAMSUNG-SGH-I747

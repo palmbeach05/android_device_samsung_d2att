@@ -15,4 +15,8 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := device/samsung/d2-unified/lineage.mk
+DEVICE_PATH := device/samsung/d2att-unified
+
+PRODUCT_MAKEFILES := \
+	$(DEVICE_PATH)/lineage.mk \
+	$(DEVICE_PATH)/omni_d2-unified.mk
