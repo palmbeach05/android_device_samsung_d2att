@@ -202,10 +202,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
 
-# Stlport
-PRODUCT_PACKAGES += \
-    libstlport
-
 # Voice processing
 PRODUCT_PACKAGES += \
     libqcomvoiceprocessing
