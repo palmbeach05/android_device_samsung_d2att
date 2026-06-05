@@ -44,26 +44,6 @@ TARGET_BOOTLOADER_BOARD_NAME					:= MSM8960
 # Assert
 TARGET_OTA_ASSERT_DEVICE 						:= d2att,d2lte,d2can,d2tmo
 
-# Audio
-BOARD_USES_ALSA_AUDIO							:= true
-BOARD_HAVE_AUDIENCE_A2220						:= true
-BOARD_HAVE_SAMSUNG_CSDCLIENT					:= true
-USE_CUSTOM_AUDIO_POLICY							:= 1
-
-# Bluetooth
-BOARD_HAVE_BLUETOOTH 							:= true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR		:= $(DEVICE_PATH)/bluetooth
-BOARD_CUSTOM_BT_CONFIG 							:= $(DEVICE_PATH)/bluetooth/vnd_d2.txt
-BOARD_HAVE_BLUETOOTH_BCM 						:= true
-BOARD_HAVE_SAMSUNG_BLUETOOTH 					:= true
-
-# Camera
-TARGET_IS_DERP2 								:= true
-TARGET_HAS_LEGACY_CAMERA_HAL1 					:= true
-TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS 			:= true
-TARGET_PROVIDES_CAMERA_HAL 						:= true
-USE_DEVICE_SPECIFIC_CAMERA 						:= true
-
 # Charger
 BOARD_BATTERY_DEVICE_NAME 						:= "battery"
 BOARD_CHARGING_CMDLINE_NAME 					:= "androidboot.bootchg"
@@ -82,10 +62,6 @@ TARGET_NO_ADAPTIVE_PLAYBACK 					:= true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT 						:= true
-
-# GPS
-TARGET_NO_RPC 									:= true
-USE_DEVICE_SPECIFIC_GPS 						:= true
 
 # Graphics
 TARGET_USES_C2D_COMPOSITION						:= true
@@ -126,10 +102,6 @@ TARGET_POWERHAL_VARIANT 						:=
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE						:= true
-
-# Radio & RIL
-BOARD_GLOBAL_CFLAGS 							+= -DDISABLE_ASHMEM_TRACKING
-BOARD_RIL_CLASS 								:= $(DEVICE_PATH)/ril
 
 # Recovery
 TARGET_RECOVERY_DENSITY 						:= hdpi
@@ -175,14 +147,3 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR 				:= true
 BOARD_VOLD_MAX_PARTITIONS 						:= 28
 TARGET_USE_CUSTOM_LUN_FILE_PATH 				:= /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
-# Wifi
-BOARD_WLAN_DEVICE 								:= bcmdhd
-BOARD_HAVE_SAMSUNG_WIFI 						:= true
-BOARD_HOSTAPD_DRIVER 							:= NL80211
-BOARD_HOSTAPD_PRIVATE_LIB 						:= lib_driver_cmd_${BOARD_WLAN_DEVICE}
-BOARD_WPA_SUPPLICANT_DRIVER 					:= NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB 				:= lib_driver_cmd_${BOARD_WLAN_DEVICE}
-WPA_SUPPLICANT_VERSION 							:= VER_0_8_X
-WIFI_DRIVER_FW_PATH_PARAM   					:= "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_STA     					:= "/system/etc/wifi/bcmdhd_sta.bin"
-WIFI_DRIVER_FW_PATH_AP      					:= "/system/etc/wifi/bcmdhd_apsta.bin"

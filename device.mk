@@ -39,30 +39,6 @@ TARGET_BOOTANIMATION_HALF_RES   := true
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.primary.msm8960 \
-    audio.r_submix.default \
-    audio.usb.default \
-    libaudio-resampler \
-    tinymix
-
-# Audio configuration
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(DEVICE_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(DEVICE_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(DEVICE_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
-
-# Camera
-PRODUCT_PACKAGES += \
-    Snap
-
-# Camera Wrapper
-PRODUCT_PACKAGES += \
-    camera.msm8960
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8960 \
@@ -75,22 +51,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fsck.f2fs \
     mkfs.f2fs
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8960 \
-    libgps.utils \
-    libloc_core \
-    libloc_eng
-
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/gps/etc/gps.conf:system/etc/gps.conf \
-    $(DEVICE_PATH)/gps/etc/sap.conf:system/etc/sap.conf
-
-# IPv6 tethering
-PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -113,34 +73,6 @@ PRODUCT_PACKAGES += \
 # Logo
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/initlogo.rle:root/initlogo.rle
-
-# Media
-PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
-    $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
-
-# Media configuration
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
-
-# NFC
-PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_jni \
-    nfc.msm8960 \
-    Nfc \
-    Tag \
-    com.android.nfc_extras
-
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(DEVICE_PATH)/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(DEVICE_PATH)/configs/nfcee_access_debug.xml
-endif
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -200,28 +132,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(PERMISSION_PATH)/android.hardware.sensor.ambient_temperature.xml:system/etc/permissions/android.hardware.sensor.ambient_temperature.xml
 
-# SPN override
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/selective-spn-conf.xml:system/etc/selective-spn-conf.xml
-
 # Tzdata
 PRODUCT_PACKAGES += \
     tzdata_twrp
 
-# Voice processing
-PRODUCT_PACKAGES += \
-    libqcomvoiceprocessing
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(DEVICE_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-PRODUCT_PACKAGES += \
-    hostapd \
-    hostapd_default.conf \
-    libwpa_client \
-    macloader \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    libnetcmdiface
