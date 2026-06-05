@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <string>
 
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
@@ -61,7 +62,8 @@ void set_target_properties(const char *device, const char *model, const char *de
 void vendor_load_properties()
 {
     char bootloader[PROP_VALUE_MAX];
-    property_get("ro.bootloader", bootloader);
+
+    strlcpy(bootloader, property_get("ro.bootloader").c_str(), sizeof(bootloader));
 
     /* d2can (Canada Variants) */
     if (strstr(bootloader, "I747M") != NULL) {

@@ -15,11 +15,11 @@
 # Inherit some common Lineage stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
-$(call inherit-product, device/samsung/d2-unified/device.mk)
+$(call inherit-product, device/samsung/d2att_unified/device.mk)
 
 # Product Identity
-PRODUCT_NAME := lineage_d2att
-PRODUCT_DEVICE := d2att
+PRODUCT_NAME := lineage_d2att_unified
+PRODUCT_DEVICE := d2att_unified
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := SAMSUNG-SGH-I747

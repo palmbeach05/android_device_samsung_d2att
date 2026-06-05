@@ -22,17 +22,20 @@
 # definition file).
 #
 
-DEVICE_PATH 									:= device/samsung/d2att-unified
+DEVICE_PATH 									:= device/samsung/d2att_unified
 
 # Inheritances
--include device/samsung/qcom-common/BoardConfigCommon.mk
 -include vendor/samsung/d2att/BoardConfigVendor.mk
 
 TARGET_SPECIFIC_HEADER_PATH						+= $(DEVICE_PATH)/include
 
 # CPU & Architecture
+TARGET_ARCH										:= arm
 TARGET_BOARD_PLATFORM							:= msm8960
 TARGET_BOARD_PLATFORM_GPU 						:= qcom-adreno200
+TARGET_CPU_ABI									:= armeabi-v7a
+TARGET_CPU_ABI2									:= armeabi
+TARGET_ARCH_VARIANT								:= armv7-a-neon
 TARGET_CPU_VARIANT								:= krait
 
 # Bootloader & Board
@@ -84,8 +87,12 @@ EXTENDED_FONT_FOOTPRINT 						:= true
 TARGET_NO_RPC 									:= true
 USE_DEVICE_SPECIFIC_GPS 						:= true
 
+# Graphics
+TARGET_USES_C2D_COMPOSITION						:= true
+TARGET_USES_ION									:= true
+
 # Init
-TARGET_INIT_VENDOR_LIB                          := libinit_d2
+TARGET_INIT_VENDOR_LIB                          := libinit_d2att_unified
 
 # Kernel
 TARGET_KERNEL_CONFIG        					:= lineageos_d2_defconfig
@@ -117,6 +124,9 @@ TARGET_COPY_OUT_VENDOR							:= system/vendor
 # Build our own PowerHAL
 TARGET_POWERHAL_VARIANT 						:=
 
+# Qualcomm support
+BOARD_USES_QCOM_HARDWARE						:= true
+
 # Radio & RIL
 BOARD_GLOBAL_CFLAGS 							+= -DDISABLE_ASHMEM_TRACKING
 BOARD_RIL_CLASS 								:= $(DEVICE_PATH)/ril
@@ -124,6 +134,9 @@ BOARD_RIL_CLASS 								:= $(DEVICE_PATH)/ril
 # Recovery
 TARGET_RECOVERY_DENSITY 						:= hdpi
 BOARD_USE_CUSTOM_RECOVERY_FONT 					:= \"roboto_15x24.h\"
+TARGET_RECOVERY_DEVICE_DIRS						+= device/samsung/qcom-common
+TARGET_RECOVERY_PIXEL_FORMAT					:= "RGBX_8888"
+BOARD_HAS_DOWNLOAD_MODE							:= true
 BOARD_USES_MMCUTILS 							:= true
 BOARD_HAS_LARGE_FILESYSTEM 						:= true
 BOARD_HAS_NO_SELECT_BUTTON 						:= true
@@ -155,7 +168,6 @@ TW_EXTRA_LANGUAGES 								:= false
 TARGET_USE_SDCLANG 								:= false
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS 							+= $(DEVICE_PATH)/sepolicy
 
 # Vold

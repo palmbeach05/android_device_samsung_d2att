@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH                     := device/samsung/d2att-unified
+DEVICE_PATH                     := device/samsung/d2att_unified
 VENDOR_PATH                     := vendor/samsung
 PERMISSION_PATH                 := frameworks/native/data/etc
 
@@ -70,10 +70,6 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8960 \
     libgenlock \
     memtrack.msm8960
-
-# Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
 
 # FS
 PRODUCT_PACKAGES += \

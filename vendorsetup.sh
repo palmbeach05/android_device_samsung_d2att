@@ -21,5 +21,8 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo lineage_d2-unified-userdebug
-add_lunch_combo omni_d2-unified-userdebug
+add_lunch_combo lineage_d2_unified-userdebug
+add_lunch_combo omni_d2_unified-userdebug
+
+export LC_ALL=C
+export ALLOW_MISSING_DEPENDENCIES=true

@@ -19,7 +19,7 @@
 set -e
 
 export DEVICE=d2att
-export DEVICE_COMMON=d2-unified
+export DEVICE_COMMON=d2_unified
 export PLATFORM_COMMON=msm8960-common
 export VENDOR=samsung
 
