@@ -14,11 +14,11 @@
 # limitations under the License
 # Inherit some common Lineage stuff.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, device/samsung/d2att_unified/device.mk)
+$(call inherit-product, device/samsung/d2att/device.mk)
 
 # Product Identity
-PRODUCT_NAME := omni_d2_unified
-PRODUCT_DEVICE := d2att_unified
+PRODUCT_NAME := omni_d2att
+PRODUCT_DEVICE := d2att
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := SAMSUNG-SGH-I747

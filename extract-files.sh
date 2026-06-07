@@ -18,7 +18,7 @@
 
 set -e
 
-export DEVICE_COMMON=d2att_unified
+export DEVICE_COMMON=d2att
 export VENDOR=samsung
 
 # Load extract_utils and do some sanity checks

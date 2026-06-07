@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH                     := device/samsung/d2att_unified
+DEVICE_PATH                     := device/samsung/d2att
 VENDOR_PATH                     := vendor/samsung
 PERMISSION_PATH                 := frameworks/native/data/etc
 

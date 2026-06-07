@@ -22,7 +22,7 @@
 # definition file).
 #
 
-DEVICE_PATH 									:= device/samsung/d2att_unified
+DEVICE_PATH 									:= device/samsung/d2att
 
 # Inheritances
 -include vendor/samsung/d2att/BoardConfigVendor.mk
@@ -68,7 +68,7 @@ TARGET_USES_C2D_COMPOSITION						:= true
 TARGET_USES_ION									:= true
 
 # Init
-TARGET_INIT_VENDOR_LIB                          := libinit_d2att_unified
+TARGET_INIT_VENDOR_LIB                          := libinit_d2att
 
 # Kernel
 TARGET_KERNEL_CONFIG        					:= lineageos_d2_defconfig

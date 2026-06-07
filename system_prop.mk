@@ -1,4 +1,4 @@
-# system.prop for d2att_unified
+# system.prop for d2att
 
 # Audio & Voice Processing
 PRODUCT_PROPERTY_OVERRIDES += \
